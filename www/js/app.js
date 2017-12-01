@@ -402,15 +402,18 @@ document.addEventListener("init", function(event) {
 				   $(".refresh_net").show();
 				}	  
 			} else {
-				document.addEventListener("deviceready", function() {	            
-		           if ( hasConnection()){
-				       callAjax("GetAppSettings",'');
-					} else {				
-					   toastMsg( getTrans("Not connected to internet","no_connection") );
-					   $(".loading_settings").html( getTrans("Not connected to internet","no_connection") );
-					   $(".refresh_net").show();
-					}	             
-	            }, false);
+				setTimeout(function () {
+                    if ( hasConnection()){
+                        callAjax("GetAppSettings",'');
+                    } else {
+                        toastMsg( getTrans("Not connected to internet","no_connection") );
+                        $(".loading_settings").html( getTrans("Not connected to internet","no_connection") );
+                        $(".refresh_net").show();
+                    }
+                },2000);
+                // document.addEventListener("deviceready", function() {
+                //
+	            // }, false);
 			}
             
 			break;
