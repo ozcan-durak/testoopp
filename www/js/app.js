@@ -392,7 +392,7 @@ document.addEventListener("init", function(event) {
 			break;
 			
 			case "pageGetSettings":		
-							
+							console.log("pageGetSettings");
 			if (isDebug()){
 				if ( hasConnection()){
 				    callAjax("GetAppSettings",'');
@@ -1819,7 +1819,7 @@ function onRequestSuccess(success){
 }
 
 function onRequestFailure(error){
-    //alert("Accuracy request failed: error code="+error.code+"; error message="+error.message);    
+    console.log("Accuracy request failed: error code="+error.code+"; error message="+error.message);
     if(error.code == 4){
     	toastMsg( getTrans("You have choosen not to turn on location accuracy",'turn_off_location') );
     	checkGPS();
